@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://ewd0fjmdbttw"]
+
+[ext_resource type="Theme" uid="uid://ctb8xe1u1uwer" path="res://assents/fonts/title.tres" id="1_1v1tv"]
+[ext_resource type="FontFile" uid="uid://desukw2towuvm" path="res://assents/fonts/Milan-Regular.otf" id="2_cceiu"]
+
+[node name="screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1166.0
+offset_bottom = 654.0
+color = Color(0.588235, 0.584314, 0.560784, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 327.0
+theme = ExtResource("1_1v1tv")
+theme_override_colors/default_color = Color(0.929412, 0.941176, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_cceiu")
+theme_override_font_sizes/normal_font_size = 100
+text = "    padania simulator
+	  (autumn-winter)"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 491.0
+offset_top = 292.0
+offset_right = 705.0
+offset_bottom = 342.0
+theme_override_colors/default_color = Color(0.929412, 0.941176, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+text = "by 104 games"
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 477.0
+offset_top = 411.0
+offset_right = 713.0
+offset_bottom = 516.0
+theme_override_colors/font_color = Color(0.929412, 0.941176, 0, 1)
+theme_override_fonts/font = ExtResource("2_cceiu")
+theme_override_font_sizes/font_size = 70
+text = "PLAY"
+flat = true
