@@ -35,3 +35,11 @@ func _physics_process(delta):
 		$anim.play("idle")
 
 	move_and_slide()
+
+
+
+func _on_torcia_area_entered(area):
+	area.show()
+
+func _on_torcia_area_exited(area):
+	area.hide()

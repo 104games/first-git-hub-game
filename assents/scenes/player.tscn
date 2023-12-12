@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://lgqj86nmlt3k"]
+[gd_scene load_steps=9 format=3 uid="uid://lgqj86nmlt3k"]
 
 [ext_resource type="Texture2D" uid="uid://cen7ha2qt2iie" path="res://assents/player/player_stand.png" id="1_5o50c"]
+[ext_resource type="Script" path="res://assents/scenes/player.gd" id="1_q16vx"]
 [ext_resource type="Texture2D" uid="uid://ry1n8khm27c2" path="res://assents/player/jump.png" id="2_pk4pj"]
 [ext_resource type="Texture2D" uid="uid://b50qkynqliteb" path="res://assents/player/player_walk_1.png" id="3_revrb"]
 [ext_resource type="Texture2D" uid="uid://bjqieurknk2i8" path="res://assents/player/player_walk_2.png" id="4_8t4m7"]
@@ -38,7 +39,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx1rq"]
 size = Vector2(71, 86)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qjd7"]
+radius = 122.053
+
 [node name="player" type="CharacterBody2D"]
+script = ExtResource("1_q16vx")
 
 [node name="anim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_gmbad")
@@ -48,3 +53,14 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, 2)
 shape = SubResource("RectangleShape2D_hx1rq")
+
+[node name="torcia" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="torcia"]
+shape = SubResource("CircleShape2D_0qjd7")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -230)
+
+[connection signal="area_entered" from="torcia" to="." method="_on_torcia_area_entered"]
+[connection signal="area_exited" from="torcia" to="." method="_on_torcia_area_exited"]
