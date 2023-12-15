@@ -40,6 +40,7 @@ func _physics_process(delta):
 
 func _on_torcia_area_entered(area):
 	area.show()
+	print("sium")
 
 func _on_torcia_area_exited(area):
 	area.hide()

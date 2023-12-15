@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://biwvb5k21lbol"]
+
+[ext_resource type="Texture2D" uid="uid://bqudvscmypqwy" path="res://assents/grat.jpg" id="1_1h26q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i2oct"]
+size = Vector2(152, 517)
+
+[node name="Area2D" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -248.5)
+shape = SubResource("RectangleShape2D_i2oct")
+
+[node name="Grat" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-06, -254.75)
+scale = Vector2(0.386935, 1.91887)
+texture = ExtResource("1_1h26q")

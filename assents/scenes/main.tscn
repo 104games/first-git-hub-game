@@ -1,23 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://88p720jdcv5b"]
+[gd_scene load_steps=9 format=3 uid="uid://88p720jdcv5b"]
 
 [ext_resource type="Texture2D" uid="uid://l5l0vmm4eyoo" path="res://assents/road.jpg" id="1_72w0q"]
-[ext_resource type="Texture2D" uid="uid://bqudvscmypqwy" path="res://assents/grat.jpg" id="2_7s7to"]
 [ext_resource type="PackedScene" uid="uid://lgqj86nmlt3k" path="res://assents/scenes/player.tscn" id="2_kmowm"]
+[ext_resource type="PackedScene" uid="uid://biwvb5k21lbol" path="res://assents/scenes/palazzo.tscn" id="2_v5sxd"]
+[ext_resource type="Texture2D" uid="uid://cj7olj350em8j" path="res://assents/Light.png" id="4_6hpok"]
+[ext_resource type="Texture2D" uid="uid://yvpm78udc58g" path="res://assents/lamp.png" id="4_gcowu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpsrn"]
 size = Vector2(11144, 78)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_yiiaq"]
-size = Vector2(199.5, 544.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jj6qt"]
+size = Vector2(24.3333, 87.1998)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_na1lu"]
+size = Vector2(59, 633)
 
 [node name="main" type="Node2D"]
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -232.0
-offset_top = -1358.0
-offset_right = 10511.0
-offset_bottom = 722.0
-color = Color(0.588235, 0.584314, 0.560784, 1)
 
 [node name="road" type="StaticBody2D" parent="."]
 
@@ -30,30 +28,37 @@ texture = ExtResource("1_72w0q")
 position = Vector2(5156, 632)
 shape = SubResource("RectangleShape2D_tpsrn")
 
-[node name="palazzo2" type="Area2D" parent="."]
+[node name="lamp" type="Area2D" parent="."]
 visible = false
+position = Vector2(521, 367)
+scale = Vector2(3, 4.289)
 
-[node name="Grat" type="Sprite2D" parent="palazzo2"]
-position = Vector2(137, 292)
-scale = Vector2(0.497487, 2.06792)
-texture = ExtResource("2_7s7to")
+[node name="Lamp" type="Sprite2D" parent="lamp"]
+scale = Vector2(1, 1)
+texture = ExtResource("4_gcowu")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="palazzo2"]
-position = Vector2(136.25, 293.75)
-shape = SubResource("RectangleShape2D_yiiaq")
+[node name="PointLight2D" type="PointLight2D" parent="lamp/Lamp"]
+position = Vector2(-0.666702, -0.699464)
+scale = Vector2(1, 0.981192)
+color = Color(0.917647, 0.909804, 0, 1)
+energy = 16.0
+texture = ExtResource("4_6hpok")
 
-[node name="palazzo" type="Area2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lamp"]
+position = Vector2(2.16667, 2.5647)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_jj6qt")
+
+[node name="palazzo" parent="." instance=ExtResource("2_v5sxd")]
 visible = false
-position = Vector2(2206, 0)
-
-[node name="Grat" type="Sprite2D" parent="palazzo"]
-position = Vector2(137, 292)
-scale = Vector2(0.497487, 2.06792)
-texture = ExtResource("2_7s7to")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="palazzo"]
-position = Vector2(136.25, 293.75)
-shape = SubResource("RectangleShape2D_yiiaq")
+position = Vector2(188, 564)
 
 [node name="player" parent="." instance=ExtResource("2_kmowm")]
-position = Vector2(539, 518)
+position = Vector2(733, 503)
+
+[node name="limit" type="StaticBody2D" parent="."]
+position = Vector2(164, 550)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="limit"]
+position = Vector2(-14.5, -267.5)
+shape = SubResource("RectangleShape2D_na1lu")
